@@ -1,4 +1,5 @@
 /* Smoothly glides the page when clicking nav links */
+
 html {
     scroll-behavior: smooth;
 }
@@ -314,5 +315,7 @@ div.flex-container{
     justify-content: center;
     align-items: center;
 }
+
+
 
 
