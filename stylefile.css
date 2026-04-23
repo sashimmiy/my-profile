@@ -14,10 +14,12 @@ body {
     position: fixed; /* Keeps the nav at the top while scrolling */
     top: 0;
     width: 90%;
+    gap: 20px;
     display: flex;
     justify-content:space-between;
     padding: 20px 50px;
     z-index: 1000; /* Keeps nav above everything else */
+    box-sizing: border-box;
 }
 
 .full-page {
@@ -56,3 +58,261 @@ body {
   height: 100%;
   object-fit: cover;  /* prevents stretching */
 }
+.about{
+    width: 100%;
+    border-collapse: collapse;
+
+}
+.page-container{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap{
+    flex: 1;
+
+}
+.main-footer {
+    background-color: #fce4ec;
+    color: #333;
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    border-top: 1px solid #eee; /* Optional: adds a subtle line above the footer */
+}
+/* Container for the projects */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Individual Project Box */
+.portfolio-box {
+    border: 1px solid #ccc;
+    background: #f4f4f4;
+    overflow: hidden; /* Keeps image corners rounded */
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 45px var(--main-color);
+}
+
+/* Container for the image to handle centering */
+.portfolio-img {
+    display: flex;
+    justify-content: center; /* Centers the image horizontally */
+    padding-top: 20px;
+}
+
+/* Fixed Image Styling */
+.portfolio-img img {
+    width: 250px;
+    height: 200px;
+    object-fit: contain; /* Keeps aspect ratio clean */
+    border-radius: 90%;
+    overflow: hidden;
+    /* Removed display: flex from here as it's not needed on the image itself */
+}
+
+/* Style the text links */
+.portfolio-content {
+    top:0%;
+    width: 90%;
+    padding: 50px 20px;
+    text-align: center;
+    min-height: 50vh; /* Move centering to the container */
+    border-bottom: 1px solid #eee;
+    justify-content: space-between;
+}
+
+.portfolio-content a {
+    gap: 20px;
+    display:contents; /* Allows the link to respect padding/alignment */
+    text-decoration: none;
+    text-align: center;
+    color: #333;
+    font-weight: bold;
+    padding: 5%;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+
+}
+
+.portfolio-content a:hover {
+    color: #007bff; /* Adds a nice hover effect */
+}
+
+
+.skill {
+    display: flex;
+    flex-direction: column; /* Stack heading above the image */
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    background: var(--snd-g-bg-color);
+    padding: 50px 0;
+}
+
+.skill-img {
+    width: 150px;           /* Use a fixed size for icons instead of 25vw */
+    height: 150px;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--main-color);
+    cursor: pointer;
+    transition: 0.4s ease;
+    overflow: hidden;       /* Ensures the image stays inside the circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure the actual image fills the container */
+.skill-img img {
+    width: 80%;             /* Give it some breathing room inside the circle */
+    height: auto;
+    transition: 0.4s ease;
+}
+
+/* Hover effect: Triggered when mouse enters the .skill-img DIV */
+.skill-img:hover {
+    transform: scale(1.1);  /* Slight pop-out effect */
+    box-shadow: 0 0 25px var(--main-color),
+                0 0 35px var(--main-color),
+                0 0 45px var(--main-color);
+}
+/* Container for the section */
+.socials-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--bg-color);
+}
+
+.socials-box {
+    max-width: 450px;
+    margin: 0 auto;
+    background: #fff;
+    border: 2px solid var(--main-color);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 15px var(--main-color);
+}
+
+.socials-box ul {
+    list-style: none; /* Removes those stray dots */
+    padding: 0;
+}
+
+.socials-box li {
+    display: flex;
+    justify-content: space-between; /* Puts label on left, link on right */
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    transition: 0.3s;
+    flex-direction: row;
+}
+
+.socials-box li:last-child {
+    border-bottom: none;
+}
+
+.socials-box li:hover {
+    background: rgba(0, 0, 0, 0.02); /* Subtle hover highlight */
+}
+
+/* Label style (e.g., "Facebook") */
+.platform {
+    font-weight: bold;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Link style */
+.socials-box a, .email-text {
+    text-decoration: none;
+    color: var(--main-color);
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.socials-box a:hover {
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
+/* The Section Background */
+.skills-section {
+    background: #fff0f5; /* Matching your light pink background */
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+/* The Container to hold the box */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* The actual Box */
+.skills-box {
+    background: white;
+    border: 2px solid var(--main-color); /* Use your theme color here */
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 100%;
+    max-width: 600px;
+    transition: 0.4s ease;
+}
+
+.skills-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+/* REMOVING THE DOTS */
+.skills-box ul {
+    list-style: none; /* This removes the bullet points */
+    padding: 0;
+    margin: 0;
+}
+
+.skills-box ul li {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+*{
+    box-sizing: border-box;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+
+}
+div.flex-container{
+    margin:10px;
+
+}
+.about{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
