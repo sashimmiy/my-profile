@@ -1,5 +1,3 @@
-/* Smoothly glides the page when clicking nav links */
-
 html {
     scroll-behavior: smooth;
 }
@@ -14,13 +12,14 @@ body {
 .header {
     position: fixed; /* Keeps the nav at the top while scrolling */
     top: 0;
-    width: 90%;
+    width: 100%;
     gap: 20px;
     display: flex;
     justify-content:space-between;
     padding: 20px 50px;
     z-index: 1000; /* Keeps nav above everything else */
     box-sizing: border-box;
+    background-color: #FCF8F8;
 }
 
 .full-page {
@@ -35,7 +34,7 @@ body {
 .content-section {
     min-height: 100vh; /* Each section fills at least one screen */
     padding: 100px 20px;
-    background: white;
+    background: #fce4ec;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
@@ -51,7 +50,7 @@ body {
   width: 200px;       /* 🔥 set your exact size */
   height: 200px;      /* must be same as width */
   border-radius: 50%; /* makes it circle */
-  overflow: hidden;   /* cuts extra parts */
+  overflow: hidden;  
 }
 
 .profile-image img {
@@ -62,7 +61,7 @@ body {
 .about{
     width: 100%;
     border-collapse: collapse;
-
+    background: #FCF8F8;
 }
 .page-container{
     display: flex;
@@ -75,81 +74,100 @@ body {
 
 }
 .main-footer {
-    background-color: #fce4ec;
+    background-color: #FCF8F8;
     color: #333;
     padding: 20px;
     text-align: center;
     width: 100%;
     border-top: 1px solid #eee; /* Optional: adds a subtle line above the footer */
 }
-/* Container for the projects */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-}
-
-/* Individual Project Box */
-.portfolio-box {
-    border: 1px solid #ccc;
-    background: #f4f4f4;
-    overflow: hidden; /* Keeps image corners rounded */
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 35px var(--main-color),
-                0 0 45px var(--main-color);
-}
 
 /* Container for the image to handle centering */
-.portfolio-img {
-    display: flex;
-    justify-content: center; /* Centers the image horizontally */
-    padding-top: 20px;
-}
-
-/* Fixed Image Styling */
-.portfolio-img img {
-    width: 250px;
-    height: 200px;
-    object-fit: contain; /* Keeps aspect ratio clean */
-    border-radius: 90%;
-    overflow: hidden;
-    /* Removed display: flex from here as it's not needed on the image itself */
-}
-
-/* Style the text links */
-.portfolio-content {
-    top:0%;
-    width: 90%;
-    padding: 50px 20px;
-    text-align: center;
-    min-height: 50vh; /* Move centering to the container */
-    border-bottom: 1px solid #eee;
-    justify-content: space-between;
-}
-
-.portfolio-content a {
+.projects-container {
+    gap: 30;
+    flex-wrap: wrap;
+    padding: 80;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
     gap: 20px;
-    display:contents; /* Allows the link to respect padding/alignment */
-    text-decoration: none;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    color: rgb(196, 140, 248) ;
+}
+.projects-grid {
+
+    display: flex;         
+    flex-direction: row;    
+    justify-content: flex-start;
+    gap: 50px;             
+    width: 100%;
+    margin-top: 20px; 
+    flex-wrap: wrap;     
+    align-items: center;
+    justify-content:center;
+}
+/* 1. Fix the Keyframes (Added a slight scale for extra polish) */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95); /* Fixed 'translate' to 'translateY' */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* 2. Apply Entry Animation to the Cards */
+.project-card {
     text-align: center;
-    color: #333;
-    font-weight: bold;
-    padding: 5%;
-    margin-top: 10px;
-    transition: color 0.3s ease;
-
+    max-width: 250px;
+    border-radius: 12px;
+    
+    /* Apply the animation here */
+    animation: fadeInUp 0.8s ease-out forwards;
+    
+    /* Fix: changed 'o.3s' to '0.3s' */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.portfolio-content a:hover {
-    color: #007bff; /* Adds a nice hover effect */
+.project-card:nth-child(2) {
+    animation-delay: 0.2s;
+    opacity: 0; /* Keeps it hidden until the delay is over */
+    animation-fill-mode: forwards;
 }
 
+/* 4. Refined Hover Effect */
+.project-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    background-color: #eee;
+}
+
+/* 5. Floating Idle Animation (The 'Pulse' effect) */
+/* You already defined 'float' below, let's apply it to the images! */
+.project-card img {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 20px;
+    animation: float 4s ease-in-out infinite;
+}
+.project-card a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: purple;
+}
+
+.project-card a:hover {
+    color: plum;
+}
 
 .skill {
+    min-height: 100vh;
     display: flex;
     flex-direction: column; /* Stack heading above the image */
     align-items: center;
@@ -158,46 +176,18 @@ body {
     background: var(--snd-g-bg-color);
     padding: 50px 0;
 }
-
-.skill-img {
-    width: 150px;           /* Use a fixed size for icons instead of 25vw */
-    height: 150px;
-    border: 2px solid var(--main-color);
-    border-radius: 50%;
-    box-shadow: 0 0 15px var(--main-color);
-    cursor: pointer;
-    transition: 0.4s ease;
-    overflow: hidden;       /* Ensures the image stays inside the circle */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Ensure the actual image fills the container */
-.skill-img img {
-    width: 80%;             /* Give it some breathing room inside the circle */
-    height: auto;
-    transition: 0.4s ease;
-}
-
-/* Hover effect: Triggered when mouse enters the .skill-img DIV */
-.skill-img:hover {
-    transform: scale(1.1);  /* Slight pop-out effect */
-    box-shadow: 0 0 25px var(--main-color),
-                0 0 35px var(--main-color),
-                0 0 45px var(--main-color);
-}
 /* Container for the section */
 .socials-section {
     padding: 60px 20px;
     text-align: center;
     background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .socials-box {
     max-width: 450px;
     margin: 0 auto;
-    background: #fff;
+    background: #FCF8F8;
     border: 2px solid var(--main-color);
     border-radius: 20px;
     padding: 20px;
@@ -248,7 +238,7 @@ body {
 }
 /* The Section Background */
 .skills-section {
-    background: #fff0f5; /* Matching your light pink background */
+    background: #FCF8F8; /* Matching your light pink background */
     padding: 100px 7%;
     text-align: center;
 }
@@ -268,7 +258,7 @@ body {
 
 /* The actual Box */
 .skills-box {
-    background: white;
+    background: #fce4ec;
     border: 2px solid var(--main-color); /* Use your theme color here */
     border-radius: 20px;
     padding: 40px;
@@ -281,6 +271,7 @@ body {
 .skills-box:hover {
     transform: translateY(-10px);
     box-shadow: 0 0 25px var(--main-color);
+    min-height: 100vh;
 }
 
 /* REMOVING THE DOTS */
@@ -315,7 +306,119 @@ div.flex-container{
     justify-content: center;
     align-items: center;
 }
+.image-circle img{
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+/* Eto ang magtatabi sa kanila */
+.about-flex-wrapper {
+    display: flex;
+    flex-direction: row ;
+    align-items: center; 
+    justify-content: center;
+    gap: 60px;            
+    padding: 100px 10%;      
+    background-color: #fce4ec;
+   text-align: center;
+}
 
 
+.text-box {
+  display: flex;
+    flex-direction: row; 
+    align-items: center;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 90px; 
+    background: #FCF8F8; 
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: justify;
+}
 
+.image-circle {
+    flex: 0 0 350px; 
+}
+
+.image-circle img {
+    width: 100%;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0% {transform: translateY(0px);}
+    50% {transform: translateY(-10px);}
+    100% {transform: translateY(0px);}
+}
+
+@medi(prefers-reduced-motion: reduced){
+    .project-card{
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+.experience-box {
+    background: #FCF8F8; /* Matches your nav/footer color */
+    max-width: 800px;
+    margin: 0 auto; /* Centers the box */
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
+    text-align: left; /* Keeps text professional */
+    transition: transform 0.3s ease;
+}
+
+.experience-box:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    border-color: #fce4ec; /* Highlights with your theme color */
+}
+
+.experience-box h1 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.8rem;
+}
+
+.company-name {
+    font-weight: bold;
+    color: purple; 
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.duration {
+    color: #666;
+    font-style: italic;
+    margin-bottom: 5px;
+}
+
+.duration span {
+    color: #999;
+    font-weight: normal;
+}
+
+.location {
+    color: #777;
+    font-size: 0.9rem;
+}
+
+.email-link{
+    color: purple;
+    text-decoration: none;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.email-link:hover {
+    color: plum;
+    border-bottom: 2px solid plum;
+}
 
