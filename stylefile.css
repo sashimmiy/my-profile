@@ -2,24 +2,44 @@ html {
     scroll-behavior: smooth;
 }
 
+
 body {
+    margin-top: 80px;
     margin: 0;
     font-family: sans-serif;
-    background-color: #fce4ec; /* Your pink theme */
-    overflow-x: hidden; /* Prevents awkward side-scrolling */
+    background-color: #fce4ec; 
+    overflow-x: hidden;
+}
+.Logo {
+    line-height: 1;
+    padding: 0.5rem 0;
+   font-size: 1.8rem;
+    color: #ebaaeb;        
+    text-decoration: none;    
+    letter-spacing: 1px;     
+    transition: 0.3s ease;  
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.Logo:hover {
+    color: #d886d8;          
+    text-shadow: 0 0 15px rgba(235, 170, 235, 0.5);
+    transform: scale(1.05);  
 }
 
 .header {
-    position: fixed; /* Keeps the nav at the top while scrolling */
+    position: fixed;
     top: 0;
+    left: 0;
     width: 100%;
-    gap: 20px;
-    display: flex;
-    justify-content:space-between;
-    padding: 20px 50px;
-    z-index: 1000; /* Keeps nav above everything else */
-    box-sizing: border-box;
+    padding: 1rem 7%; 
     background-color: #FCF8F8;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;          
+    z-index: 1000;
+    box-sizing: border-box;
 }
 
 .full-page {
@@ -32,14 +52,14 @@ body {
 }
 
 .content-section {
-    min-height: 100vh; /* Each section fills at least one screen */
+    min-height: 100vh; 
     padding: 100px 20px;
     background: #fce4ec;
     text-align: center;
     border-bottom: 1px solid #eee;
 }
 
-/* Style for your nav links */
+
 .navbar a {
     margin-left: 10px;
     text-decoration: none;
@@ -47,16 +67,16 @@ body {
     font-weight: bold;
 }
 .profile-image {
-  width: 200px;       /* 🔥 set your exact size */
-  height: 200px;      /* must be same as width */
-  border-radius: 50%; /* makes it circle */
+  width: 200px;       
+  height: 200px;      
+  border-radius: 50%; 
   overflow: hidden;  
 }
 
 .profile-image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;  /* prevents stretching */
+  object-fit: cover;  
 }
 .about{
     width: 100%;
@@ -79,10 +99,10 @@ body {
     padding: 20px;
     text-align: center;
     width: 100%;
-    border-top: 1px solid #eee; /* Optional: adds a subtle line above the footer */
+    border-top: 1px solid #eee; 
 }
 
-/* Container for the image to handle centering */
+
 .projects-container {
     gap: 30;
     flex-wrap: wrap;
@@ -107,11 +127,11 @@ body {
     align-items: center;
     justify-content:center;
 }
-/* 1. Fix the Keyframes (Added a slight scale for extra polish) */
+ 
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(30px) scale(0.95); /* Fixed 'translate' to 'translateY' */
+        transform: translateY(30px) scale(0.95); 
     }
     to {
         opacity: 1;
@@ -119,26 +139,26 @@ body {
     }
 }
 
-/* 2. Apply Entry Animation to the Cards */
+
 .project-card {
     text-align: center;
     max-width: 250px;
     border-radius: 12px;
     
-    /* Apply the animation here */
+ 
     animation: fadeInUp 0.8s ease-out forwards;
     
-    /* Fix: changed 'o.3s' to '0.3s' */
+   
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .project-card:nth-child(2) {
     animation-delay: 0.2s;
-    opacity: 0; /* Keeps it hidden until the delay is over */
+    opacity: 0; 
     animation-fill-mode: forwards;
 }
 
-/* 4. Refined Hover Effect */
+
 .project-card:hover {
     transform: translateY(-10px) scale(1.05);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
@@ -146,8 +166,7 @@ body {
     background-color: #eee;
 }
 
-/* 5. Floating Idle Animation (The 'Pulse' effect) */
-/* You already defined 'float' below, let's apply it to the images! */
+
 .project-card img {
     width: 200px;
     height: 200px;
@@ -169,19 +188,20 @@ body {
 .skill {
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack heading above the image */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 2rem;
     background: var(--snd-g-bg-color);
     padding: 50px 0;
 }
-/* Container for the section */
+
 .socials-section {
     padding: 60px 20px;
     text-align: center;
     background: var(--bg-color);
     min-height: 100vh;
+    text-decoration: none;
 }
 
 .socials-box {
@@ -195,13 +215,13 @@ body {
 }
 
 .socials-box ul {
-    list-style: none; /* Removes those stray dots */
+    list-style: none; 
     padding: 0;
 }
 
 .socials-box li {
     display: flex;
-    justify-content: space-between; /* Puts label on left, link on right */
+    justify-content: space-between; 
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid #eee;
@@ -214,79 +234,66 @@ body {
 }
 
 .socials-box li:hover {
-    background: rgba(0, 0, 0, 0.02); /* Subtle hover highlight */
+    background: rgba(0, 0, 0, 0.02); 
 }
 
-/* Label style (e.g., "Facebook") */
+
 .platform {
     font-weight: bold;
     color: #333;
     font-size: 1.1rem;
 }
 
-/* Link style */
-.socials-box a, .email-text {
-    text-decoration: none;
-    color: var(--main-color);
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.socials-box a:hover {
-    text-decoration: underline;
-    filter: brightness(1.2);
-}
-/* The Section Background */
+/* Container para sa buong section */
 .skills-section {
-    background: #FCF8F8; /* Matching your light pink background */
-    padding: 100px 7%;
-    text-align: center;
+    padding: 50px 10%;
+    text-align: center; 
+    background: #fce4ec;
+    min-height: 100vh;
+    text-decoration: none;
 }
 
-.heading {
+/* Fix para sa salitang "SKILLS" */
+.section-title {
     font-size: 3rem;
-    margin-bottom: 3rem;
+    font-weight: 800;
+    text-align: left; /* O 'center' kung gusto mo sa gitna */
+    margin-bottom: 30px;
     color: #333;
 }
 
-/* The Container to hold the box */
-.skills-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* The actual Box */
+/* Ang mismong puting box */
 .skills-box {
-    background: #fce4ec;
-    border: 2px solid var(--main-color); /* Use your theme color here */
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    width: 100%;
-    max-width: 600px;
-    transition: 0.4s ease;
+    background: #FCF8F8; 
+    max-width: 800px;
+    margin: 0 auto; /* Ito ang nagpapagitna sa box */
+    padding: 50px;
+    border-radius: 30px; /* Mas rounded gaya ng nasa image */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+    text-align: left; /* Para ang text sa loob ay nasa kaliwa */
+    transition: 0.3s ease;
 }
 
 .skills-box:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 25px var(--main-color);
-    min-height: 100vh;
 }
 
-/* REMOVING THE DOTS */
-.skills-box ul {
-    list-style: none; /* This removes the bullet points */
-    padding: 0;
-    margin: 0;
-}
-
-.skills-box ul li {
+.skill-item h3 {
     font-size: 2rem;
-    font-weight: 700;
-    color: #333;
-    margin: 20px 0;
-    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.skill-item p {
+    font-size: 1.1rem;
+    color: #444;
+    margin-bottom: 30px; 
+}
+
+
+.skill-item:last-child p {
+    margin-bottom: 0;
 }
 *{
     box-sizing: border-box;
@@ -314,7 +321,7 @@ div.flex-container{
     display: flex;
     justify-content: center;
 }
-/* Eto ang magtatabi sa kanila */
+
 .about-flex-wrapper {
     display: flex;
     flex-direction: row ;
@@ -356,35 +363,107 @@ div.flex-container{
     100% {transform: translateY(0px);}
 }
 
-@medi(prefers-reduced-motion: reduced){
+@medi(){
     .project-card{
         animation: none !important;
         transition: none !important;
     }
 }
+.experiences-section {
+    background: #FCF8F8; 
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.heading {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+    color: #333;
+}
+
+
+.experience-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 .experience-box {
-    background: #FCF8F8; /* Matches your nav/footer color */
-    max-width: 800px;
-    margin: 0 auto; /* Centers the box */
-    padding: 40px;
+    background: #FCF8F8;
+    border: 2px solid var(--main-color); 
     border-radius: 20px;
-    border: 1px solid #eee;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Soft shadow */
-    text-align: left; /* Keeps text professional */
-    transition: transform 0.3s ease;
+    padding: 40px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    transition: 0.4s ease;
+    margin: 0 auto;
+    
 }
 
 .experience-box:hover {
-    transform: translateY(-5px); /* Subtle lift on hover */
-    border-color: #fce4ec; /* Highlights with your theme color */
+    transform: translateY(-10px);
+    box-shadow: 0 0 25px var(--main-color);
+    min-height: 100vh;
+    
 }
 
-.experience-box h1 {
-    margin-top: 0;
-    color: #333;
-    font-size: 1.8rem;
+
+.experience-box ul {
+    list-style: none; 
+    padding: 0;
+    margin: 0;
 }
+
+.experience-box ul li {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+    margin: 20px 0;
+    text-align: center;
+}
+.experience{
+      font-style:normal;
+      color: #333;
+      justify-content: justify;
+
+}
+/* 1. I-set ang main details na laging visible */
+.experience-details p:not(.experience) {
+    opacity: 1;
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* 2. Itago ang specific na mahabang text */
+.experience {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.5s ease; /* Smooth transition */
+    font-style: normal;
+    color: #555;
+    text-align: justify;
+    margin-top: 0;
+}
+
+/* 3. Pag-hover sa box, lalabas na yung .experience text */
+.experience-box:hover .experience {
+    max-height: 500px; /* Sapat na height para lumabas lahat */
+    opacity: 1;
+    margin-top: 15px; /* Space para hindi dikit sa taas */
+}
+
+/* 4. Siguraduhin na ang box mismo ay hindi siksik */
+.experience-box {
+    cursor: pointer;
+    overflow: hidden;
+    /* Panatilihin ang dati mong styles dito */
+}
+
+
+
 
 .company-name {
     font-weight: bold;
